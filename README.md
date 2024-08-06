@@ -24,30 +24,30 @@ Software with the same functions is installed in each battery system, and the so
 The software that realizes the above technology and makes it possible to easily construct a DC microgrid is released.  
 
 ### ▼ Software required to simulate energy exchange using a hardware emulator 
- - [apis-main](https://github.com/SonyCSL/apis-main)  
+ - [apis-main](https://github.com/hyphae/apis-main)  
   Software installed on each node to provide bi-directional energy exchange with autonomous decentralized control   
-  See apis-main's [Documentation](https://github.com/SonyCSL/apis-main/blob/master/doc/en/apis-main_specification_en.md) for more information.  
- - [apis-main_controller](https://github.com/SonyCSL/apis-main_controller)   
+  See apis-main's [Documentation](https://github.com/hyphae/apis-main/blob/master/doc/en/apis-main_specification_en.md) for more information.  
+ - [apis-main_controller](https://github.com/hyphae/apis-main_controller)   
   Software that visualizes the status of apis-main installed on each node and the status of energy exchange between nodes  
-  See apis-main_controller's [Documentation](https://github.com/SonyCSL/apis-main_controller/blob/master/doc/en/apis-main-controller_specification_en.md) for more information. 
- - [apis-web](https://github.com/SonyCSL/apis-web)  
+  See apis-main_controller's [Documentation](https://github.com/hyphae/apis-main_controller/blob/master/doc/en/apis-main-controller_specification_en.md) for more information. 
+ - [apis-web](https://github.com/hyphae/apis-web)  
   Software that acquires necessary information for visualization from apis-main and provides it to apis-main_controller  
-  See apis-web's [Documentation](https://github.com/SonyCSL/apis-web/blob/master/doc/en/apis-web_specification_en.md) for more information. 
- - [apis-emulator](https://github.com/SonyCSL/apis-emulator)  
+  See apis-web's [Documentation](https://github.com/hyphae/apis-web/blob/master/doc/en/apis-web_specification_en.md) for more information. 
+ - [apis-emulator](https://github.com/hyphae/apis-emulator)  
   Software to emulate hardware such as DC/DC converters and batteries   
-  See apis-emulator's [Documentation](https://github.com/SonyCSL/apis-emulator/blob/master/doc/en/apis-emulator_specification_en.md) for more information.  
- - [apis-service_center](https://github.com/SonyCSL/apis-service_center)  (Added on December 24, 2020)  
+  See apis-emulator's [Documentation](https://github.com/hyphae/apis-emulator/blob/master/doc/en/apis-emulator_specification_en.md) for more information.  
+ - [apis-service_center](https://github.com/hyphae/apis-service_center)  (Added on December 24, 2020)  
   Software to provide information required by the administrators and users of clusters constructed of apis-main services installed in each unit.  
-  See apis-service_center's [Documentation](https://github.com/SonyCSL/apis-service_center/blob/main/doc/en/apis-service_center_specification_EN.md) for more information.  
- - [apis-ccc](https://github.com/SonyCSL/apis-ccc)  (Added on December 24, 2020)  
+  See apis-service_center's [Documentation](https://github.com/hyphae/apis-service_center/blob/main/doc/en/apis-service_center_specification_EN.md) for more information.  
+ - [apis-ccc](https://github.com/hyphae/apis-ccc)  (Added on December 24, 2020)  
   Software to uploade information that is related to energy sharing to apis-service_center.  
-  See apis-ccc's [Documentation](https://github.com/SonyCSL/apis-ccc/blob/main/doc/en/apis-ccc_specification_EN.md) for more information. 
- - [apis-log](https://github.com/SonyCSL/apis-log)  (Added on December 24, 2020)  
+  See apis-ccc's [Documentation](https://github.com/hyphae/apis-ccc/blob/main/doc/en/apis-ccc_specification_EN.md) for more information. 
+ - [apis-log](https://github.com/hyphae/apis-log)  (Added on December 24, 2020)  
   Software to receive information from apis-main by multicast via a communication line and storing that information in a database.  
-  See apis-log's [Documentation](https://github.com/SonyCSL/apis-log/blob/main/doc/en/apis-log_specification_EN.md) for more information. 
- - [apis-tester](https://github.com/SonyCSL/apis-tester)  (Added on December 24, 2020)  
+  See apis-log's [Documentation](https://github.com/hyphae/apis-log/blob/main/doc/en/apis-log_specification_EN.md) for more information. 
+ - [apis-tester](https://github.com/hyphae/apis-tester)  (Added on December 24, 2020)  
   Software to test and evaluation of apis-main.  
-  See apis-tester's [Documentation](https://github.com/SonyCSL/apis-tester/blob/main/doc/en/apis-tester_specification_EN.md) for more information. 
+  See apis-tester's [Documentation](https://github.com/hyphae/apis-tester/blob/main/doc/en/apis-tester_specification_EN.md) for more information. 
   
  ## Installation  
  
@@ -83,7 +83,7 @@ $ sudo apt install mongodb-org
  See each software repository for the individual installation and execution of each software.    
  
  ```bash
-$ git clone https://github.com/SonyCSL/APIS.git
+$ git clone https://github.com/hyphae/APIS.git
 $ cd APIS
 $ make build
 ```
@@ -128,19 +128,19 @@ $ make stop
 ### ▼ Software and hardware information required for energy exchange using actual DC/DC converters and batteries
 Use apis-dcdc_batt_comm instead of apis-emulator.  
  
- - [apis-dcdc_batt_comm](https://github.com/SonyCSL/apis-dcdc_batt_comm)  
+ - [apis-dcdc_batt_comm](https://github.com/hyphae/apis-dcdc_batt_comm)  
   Sample device driver to control DC/DC converters and  batteries    
-  See apis-dcdc_batt_comm's [Documentation](https://github.com/SonyCSL/apis-dcdc_batt_comm/blob/master/doc/en/apis-dcdc_batt_comm_specification_en.md) for more information.  
- - [apis-build_version_up_system](https://github.com/SonyCSL/apis-build_version_up_system)  
- This tool clones all of the software needed to build the APIS evaluation environment from GitHub/Sony CSL in a single batch, builds the software, generates the various configuration files required for APIS operation according to the configuration file, and then installs all of the software on multiple nodes.
-  See apis-build_version_up_systems's [Documentation](https://github.com/SonyCSL/apis-build_version_up_system/blob/main/doc/en/apis-build_version_up_system_specification_EN.md) for more information.  
+  See apis-dcdc_batt_comm's [Documentation](https://github.com/hyphae/apis-dcdc_batt_comm/blob/master/doc/en/apis-dcdc_batt_comm_specification_en.md) for more information.  
+ - [apis-build_version_up_system](https://github.com/hyphae/apis-build_version_up_system)  
+ This tool clones all of the software needed to build the APIS evaluation environment from GitHub/hyphae in a single batch, builds the software, generates the various configuration files required for APIS operation according to the configuration file, and then installs all of the software on multiple nodes.
+  See apis-build_version_up_systems's [Documentation](https://github.com/hyphae/apis-build_version_up_system/blob/main/doc/en/apis-build_version_up_system_specification_EN.md) for more information.  
  - [apis-hw-info](https://github.com/SonyCSL/apis-hw-info)  
   Hardware reference information  
-  See apis-hw-info's [Documentation](https://github.com/SonyCSL/apis-hw-info/blob/main/MAIN-DOCUMENT_EN.md) for more information.
+  See apis-hw-info's [Documentation](https://github.com/hyphae/apis-hw-info/blob/main/MAIN-DOCUMENT_EN.md) for more information.
 
  ## License
-&emsp;[Apache License Version 2.0](https://github.com/oes-github/APIS/blob/master/LICENSE)
+&emsp;[Apache License Version 2.0](https://github.com/hyphae/APIS/blob/master/LICENSE)
 
 
 ## Notice
-&emsp;[Notice](https://github.com/oes-github/APIS/blob/master/NOTICE.md)
+&emsp;[Notice](https://github.com/hyphae/APIS/blob/master/NOTICE.md)
