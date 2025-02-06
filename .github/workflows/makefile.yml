@@ -31,5 +31,11 @@ jobs:
 
     - name: Build
       run: make build
+      
+    - name: Run
+      run: make run
+
+    - name: Stop
+      run: make stop
 
 
