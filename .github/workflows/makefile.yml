@@ -9,19 +9,27 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: configure
-      run: ./configure
+    # - name: configure
+    #  run: ./configure
 
     - name: Install dependencies
+      run: |
+        sudo apt install git
+        sudo apt install make
+        sudo apt install maven
+        sudo apt install groovy
+        sudo apt install python3-venv
+        sudo apt install python3-pip
+        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+        echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+        sudo apt install mongodb-org
+
+    - name: Build
       run: make build
 
-    - name: Run check
-      run: make check
 
-    - name: Run distcheck
-      run: make distcheck
