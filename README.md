@@ -6,7 +6,7 @@ By accommodating P2P energy sharing between distributed batteries, it is possibl
 
 Click [here](https://www.sonycsl.co.jp/tokyo/11481/) for details
 
-## Technoogy
+## Technology
 
 ### Physical Peer to Peer(PP2P) energy sharing
 
