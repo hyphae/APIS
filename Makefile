@@ -1,6 +1,36 @@
 
 GIT_BASE_URL=https://github.com/hyphae
 
+.PHONY: help
+help:
+	@printf "\nClone Repositories:\n"
+	@printf "  make apis-bom               - Clone APIS BOM repository\n"
+	@printf "  make apis-common            - Clone APIS Common repository\n"
+	@printf "  make apis-main              - Clone APIS Main repository\n"
+	@printf "  make apis-ccc               - Clone APIS CCC repository\n"
+	@printf "  make apis-log               - Clone APIS Log repository\n"
+	@printf "  make apis-web               - Clone APIS Web repository\n"
+	@printf "  make apis-emulator          - Clone APIS Emulator repository\n"
+	@printf "  make apis-main_controller   - Clone APIS Main Controller repository\n"
+	@printf "  make apis-service_center    - Clone APIS Service Center repository\n"
+	@printf "  make apis-tester            - Clone APIS Tester repository\n\n"
+	@printf "Build Targets:\n"
+	@printf "  make build-apis-*           - Build a specific APIS module\n"
+	@printf "  make build                  - Build all APIS modules\n\n"
+	@printf "Update Repositories:\n"
+	@printf "  make update-apis-*          - Update a specific APIS repository\n"
+	@printf "  make update                 - Update all APIS repositories\n\n"
+	@printf "Clean Targets:\n"
+	@printf "  make clean-apis-*           - Clean a specific APIS module\n"
+	@printf "  make clean                  - Clean all APIS modules\n\n"
+	@printf "Run Targets:\n"
+	@printf "  make run-apis-*             - Run a specific APIS module\n"
+	@printf "  make run-mongodb            - Run MongoDB service\n"
+	@printf "  make run                    - Run all APIS services\n\n"
+	@printf "Stop Targets:\n"
+	@printf "  make stop-apis-*            - Stop a specific APIS module\n"
+	@printf "  make stop-mongodb           - Stop MongoDB service\n"
+	@printf "  make stop                   - Stop all APIS services\n"
 
 apis-bom:
 	git clone $(GIT_BASE_URL)/apis-bom.git
