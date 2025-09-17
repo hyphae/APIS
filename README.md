@@ -1,6 +1,5 @@
 # 🔋 APIS - Autonomous Power Interchange System
 
-
 > **Share energy like sharing WiFi** - Connect your batteries and let communities power themselves
 
 ![image 8](https://github.com/user-attachments/assets/2630dda3-97c9-424f-b20f-034af584be10)
@@ -28,7 +27,6 @@ Click [here](https://www.sonycsl.co.jp/tokyo/11481/) for more details about the 
 ## 🔧 How It Works
 
 ![image 5](https://github.com/user-attachments/assets/4a2b2b5c-41e6-4bc8-8d7f-a150740c80e5)
-
 
 ### Physical Peer to Peer (PP2P) Energy Sharing
 
@@ -102,7 +100,6 @@ make stop
 
 ![image 9](https://github.com/user-attachments/assets/61ced950-9bc5-4cef-84dd-f322c10fdd1b)
 
-
 APIS consists of several interconnected software modules that work together seamlessly:
 
 ### 🔋 Core Components (Essential for Basic Operation)
@@ -137,7 +134,6 @@ APIS consists of several interconnected software modules that work together seam
 
 ![image 2](https://github.com/user-attachments/assets/66de9429-c395-4b02-a015-b4a11e455b1f)
 
-
 ### 🖥️ System Requirements
 
 **Tested Operating Systems:**
@@ -155,18 +151,12 @@ APIS consists of several interconnected software modules that work together seam
 # Ubuntu/Debian systems:
 sudo apt update
 sudo apt install git make maven groovy python3-venv python3-pip
-
-# Install MongoDB (required for data storage)
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-sudo apt install mongodb-org
 ```
 
 **Also Required:**
 - **Java Development Kit (JDK)**: Latest version
 - **Python**: 3.6.9 or later  
 - **SQLite**: 3.8.3 or later (required for CentOS 7)
-- **MongoDB**: 4.0 or later
 
 ### 🚀 Installation Steps
 
@@ -242,9 +232,8 @@ make stop
 
 ![image 4](https://github.com/user-attachments/assets/7c3b06b0-34f8-4efa-91f8-461dad45ffb9)
 
-
 ### For Homeowners 🏠
-- **💰 Lower Bills**: Reduce electricity costs by up to 40%
+- **💰 Lower Bills**: Reduce electricity costs significantly
 - **🔋 Backup Power**: Access community energy when your battery runs low
 - **🤖 Fully Automatic**: Set preferences once, let APIS handle everything
 - **📱 Easy Monitoring**: Simple web interface accessible from any device
@@ -310,13 +299,11 @@ We welcome contributions from the community! Here's how you can help:
 - **📖 Documentation**: Most questions answered in our comprehensive guides
 - **🔍 GitHub Issues**: Search existing problems and solutions
 - **💬 Community Forums**: Ask and answer questions with other users
-- **📺 Video Tutorials**: Visual learning resources and walkthroughs
 
 ### 📞 Direct Support
-- **🐛 Bug Reports**: [Create a GitHub issue](https://github.com/hyphae/APIS/issues/new?template=bug_report.md)
-- **💡 Feature Requests**: [Suggest improvements](https://github.com/hyphae/APIS/issues/new?template=feature_request.md)  
+- **🐛 Bug Reports**: Create a GitHub issue for bug reports
+- **💡 Feature Requests**: Suggest improvements through GitHub issues
 - **🔒 Security Issues**: Contact maintainers directly for sensitive matters
-- **💼 Commercial Support**: Enterprise support available for large deployments
 
 ---
 
@@ -341,28 +328,6 @@ See the [NOTICE](https://github.com/hyphae/APIS/blob/master/NOTICE.md) for addit
 
 ---
 
-## 🌍 Real World Impact
-
-### 📊 Who's Using APIS
-
-- **🏘️ Neighborhoods**: 50+ communities across 12 countries
-- **🏢 Businesses**: Small offices sharing rooftop solar
-- **🏭 Industrial**: Factories balancing energy loads  
-- **🎓 Research**: 25+ universities studying distributed energy
-
-### 💬 Success Stories
-
-> *"Our electric bill dropped 40% in the first year after joining our APIS community network."*  
-> — Sarah M., homeowner in Portland, OR
-
-> *"APIS helped us stay powered during the 2023 winter storm when the main grid went down."*  
-> — Mike T., community coordinator in Austin, TX
-
-> *"As a developer, I love how easy APIS made it to integrate energy trading into our smart home platform."*  
-> — Jamie L., software developer in Toronto, ON
-
----
-
 ## 🎯 What's Next for APIS
 
 ### 🔜 Coming Soon
@@ -383,30 +348,19 @@ See the [NOTICE](https://github.com/hyphae/APIS/blob/master/NOTICE.md) for addit
 
 ![image 7](https://github.com/user-attachments/assets/8e38740d-4ccf-4c46-a81c-400b8841cab4)
 
-
 **Choose your path:**
 
 ### 🏠 **For Homeowners**
 Try the [Quick Start](#-quick-start-5-minutes) guide above and start saving on your energy bills today!
 
 ### 👨‍💻 **For Developers** 
-Check out our comprehensive [API Documentation](docs/api/README.md) and start building amazing energy applications.
+Explore the system components and documentation to start building energy applications.
 
 ### 🏘️ **For Communities**
-Read our [Community Setup Guide](docs/community/setup.md) and bring energy independence to your neighborhood.
+Set up APIS for your neighborhood and bring energy independence to your community.
 
 ### 🎓 **For Researchers**
-Explore our [Academic Resources](docs/research/README.md) and contribute to the future of distributed energy systems.
-
----
-
-*Questions? Ideas? Just want to say hi? We'd love to hear from you!*
-
-**Connect with us:**
-- 💬 [GitHub Discussions](https://github.com/hyphae/APIS/discussions)
-- 🐦 [Twitter @APISEnergy](https://twitter.com/APISEnergy)  
-- 📧 [hello@apis-energy.org](mailto:hello@apis-energy.org)
-- 💼 [LinkedIn](https://linkedin.com/company/apis-energy)
+Contribute to the future of distributed energy systems through APIS development and research.
 
 ---
 
