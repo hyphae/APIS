@@ -49,10 +49,13 @@ The Makefile has been modified with **Detached Mode Setup** that uses `nohup` an
 
 ### 1.2 Security Group Configuration
 Create security group with rules:
-```yaml
+```
+bash
+
 Type: SSH, Port: 22, Source: My IP
 Type: Custom TCP, Port: [Your API Port --> 4382, 4390, 10000, 8000] Source: 0.0.0.0/0
 
+```
 ### 1.3 Key Pair
 Create new key pair or use existing
 Download .pem file and secure it
