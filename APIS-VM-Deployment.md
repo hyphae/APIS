@@ -57,32 +57,40 @@ Type: Custom TCP, Port: [Your API Port --> 4382, 4390, 10000, 8000] Source: 0.0.
 
 ```
 ### 1.3 Key Pair
-Create new key pair or use existing
-Download .pem file and secure it
+- Create new key pair or use existing
+- Download .pem file and secure it
 
 ## Step 2: Connect to Instance
-
+```
+bash
 # Change permissions on key file
 chmod 400 your-key.pem
 
 # SSH into instance
 ssh -i "your-key.pem" ubuntu@your-instance-ip
-
+```
 
 ## Step 3: Environment Setup
 
 ### 3.1 Update System
+```
+bash
 sudo yum update -y
+```
 
 ### 3.2 Install Dependencies
+```
+bash
 sudo apt install git make maven groovy python3-venv python3-pip
-
+```
 
 ### 3.3 Install MongoDB 7.0 with Compatibility Fix
 Fix MongoDB GPG Key and Repository Issues:
-
+```
+bash
 # Remove any existing MongoDB lists that may cause conflicts
 sudo rm -f /etc/apt/sources.list.d/mongodb*.list
+
 
 # Download and install the official MongoDB 7.0 GPG key
 curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-archive-keyring.gpg
@@ -92,16 +100,18 @@ echo "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-archive-keyrin
 
 # Update APT and install MongoDB
 sudo apt update && sudo apt install -y mongodb-org
-
+```
 ## Step 4: Deploy Application
 ### 4.1 Clone Repository
-
+```
+bash
 git clone https://github.com/hyphae/APIS.git
 cd APIS
-
+```
 ### 4.2 Fix NumPy Dependency Issue
 Before running make build, resolve numpy compatibility:
-
+```
+bash
 # First remove the existing numpy line from requirements
 sed -i '/numpy/d' requirements.txt
 
@@ -110,9 +120,15 @@ echo "numpy>=1.21.0" >> requirements.txt
 
 # Key Makefile Modifications
 Replace the content of the Makefile with this EC2_Makefile completely. You can find in the files in the repository
+```
 
 ## Step 5: Build and Start Services
 ### 5.1 Build Services
+```
+bash
 make build
 make run
+
+# to stop the service
 make stop
+```
