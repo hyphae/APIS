@@ -1,4 +1,8 @@
 # 🔋 APIS - Autonomous Power Interchange System
+![maintenance-status](https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9993/badge)](https://www.bestpractices.dev/projects/9993)
+[![LFX Health Score](https://img.shields.io/static/v1?label=Health%20Score&message=Stable&color=0094FF&logo=linuxfoundation&logoColor=white&style=flat)](https://insights.linuxfoundation.org/project/hyphae/repository/APIS)
+
 
 > **Share energy like sharing WiFi** - Connect your batteries and let communities power themselves
 
