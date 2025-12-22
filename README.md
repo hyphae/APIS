@@ -1,8 +1,5 @@
 # 🔋 APIS - Autonomous Power Interchange System
-
-> **Share energy like sharing WiFi** - Connect your batteries and let communities power themselves
-
-![image 8](https://github.com/user-attachments/assets/2630dda3-97c9-424f-b20f-034af584be10)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/hyphae/APIS/badge)](https://scorecard.dev/viewer/?uri=github.com/hyphae/APIS)
 
 ---
 
