@@ -1,8 +1,6 @@
 # 🔋 APIS - Autonomous Power Interchange System
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/hyphae/APIS/badge)](https://scorecard.dev/viewer/?uri=github.com/hyphae/APIS)
 
----
-
 ## 🎯 What is APIS?
 
 **APIS** is an innovative open-source platform that enables **Physical Peer-to-Peer (PP2P) energy sharing** between distributed batteries in microgrids. By leveraging Variable Renewable Energy (VRE) sources, APIS builds resilient microgrids that enhance community self-sufficiency and reduce dependency on traditional centralized power generation.
@@ -18,8 +16,6 @@ Imagine if your home battery could automatically share power with your neighbors
 - **🛡️ Build Resilience**: Keep communities powered during grid outages
 
 Click [here](https://www.sonycsl.co.jp/tokyo/11481/) for more details about the research behind APIS.
-
----
 
 ## 🔧 How It Works
 
@@ -46,8 +42,6 @@ APIS achieves **precise energy sharing between batteries using constant current 
 - 📊 **Custom Parameters**: Configure energy amount, pricing, and timing preferences
 
 ![Autonomous Control Diagram](https://user-images.githubusercontent.com/71874910/95833927-3ff19b80-0d77-11eb-9bc7-1994e641d5fd.PNG)
-
----
 
 ## 🚀 Quick Start (5 Minutes)
 
@@ -90,7 +84,10 @@ make run
 ```bash
 make stop
 ```
----
+
+## 🔩 Installation
+- **Native Host (Recommended for Hardware):** See [Host Installation](docs/INSTALL_HOST.md) for building directly on your Linux distribution.
+- **Docker (Best for evaluation):** See [Docker Setup Guide](docs/INSTALL_DOCKER.md) for quick deployment and troubleshooting.
 
 ## 🛠️ System Components
 
@@ -123,10 +120,6 @@ APIS consists of several interconnected software modules that work together seam
 | **⚙️ [apis-dcdc_batt_comm](https://github.com/hyphae/apis-dcdc_batt_comm)** | Hardware Driver | Controls actual DC/DC converters and batteries (replaces emulator for real deployments) ([Documentation](https://github.com/hyphae/apis-dcdc_batt_comm/blob/master/doc/en/apis-dcdc_batt_comm_specification_en.md)) |
 | **🚀 [apis-build_version_up_system](https://github.com/hyphae/apis-build_version_up_system)** | Deployment Tool | Automates multi-node software installation and configuration for production systems ([Documentation](https://github.com/hyphae/apis-build_version_up_system/blob/main/doc/en/apis-build_version_up_system_specification_EN.md)) |
 | **📖 [apis-hw-info](https://github.com/SonyCSL/apis-hw-info)** | Hardware Guide | Reference documentation for compatible hardware and technical specifications ([Documentation](https://github.com/hyphae/apis-hw-info/blob/main/MAIN-DOCUMENT_EN.md)) |
-
-## 🔩 Installation
-- **Docker (Recommended):** See [Docker Setup Guide](docs/INSTALL_DOCKER.md) for quick deployment and troubleshooting.
-- **Native Host:** See [Host Installation](docs/INSTALL_HOST.md) for building directly on your Linux distribution.
 
 ## 📖 How to Use APIS
 ### 🎮 Basic Operations
