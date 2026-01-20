@@ -72,5 +72,3 @@ make run
 * **Build/Run Failures:** Environmental variables may not have refreshed; open a new terminal session and retry.
 * **Port Conflicts:** Ensure ports `4382` and `4390` are not occupied by other web services.
 * **Permission Denied:** Ensure your user has write access to the `APIS` directory or use appropriate privileges for system-level dependency installation.
-
-Would you like me to merge these two guides into a single `INSTALL.md` file with a table of contents?
