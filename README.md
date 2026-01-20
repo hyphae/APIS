@@ -90,7 +90,6 @@ make run
 ```bash
 make stop
 ```
-
 ---
 
 ## 🛠️ System Components
@@ -125,14 +124,11 @@ APIS consists of several interconnected software modules that work together seam
 | **🚀 [apis-build_version_up_system](https://github.com/hyphae/apis-build_version_up_system)** | Deployment Tool | Automates multi-node software installation and configuration for production systems ([Documentation](https://github.com/hyphae/apis-build_version_up_system/blob/main/doc/en/apis-build_version_up_system_specification_EN.md)) |
 | **📖 [apis-hw-info](https://github.com/SonyCSL/apis-hw-info)** | Hardware Guide | Reference documentation for compatible hardware and technical specifications ([Documentation](https://github.com/hyphae/apis-hw-info/blob/main/MAIN-DOCUMENT_EN.md)) |
 
----
-## Installation
+## 🔩 Installation
 - **Docker (Recommended):** See [Docker Setup Guide](docs/INSTALL_DOCKER.md) for quick deployment and troubleshooting.
 - **Native Host:** See [Host Installation](docs/INSTALL_HOST.md) for building directly on your Linux distribution.
----
 
 ## 📖 How to Use APIS
-
 ### 🎮 Basic Operations
 
 **Start the System:**
@@ -151,7 +147,6 @@ make stop
 ```
 
 ### ⚙️ Configuration
-
 **Energy Trading Setup:**
 1. Access the web interfaces to modify transaction parameters
 2. Adjust energy trading conditions per time window
@@ -163,7 +158,6 @@ make stop
 - Transaction history and analytics
 - Performance metrics and system health
 - Community-wide energy balance reports
-
 ---
 
 ## 🌍 Key Benefits
