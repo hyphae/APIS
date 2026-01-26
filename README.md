@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # 🔋 APIS - Autonomous Power Interchange System
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/hyphae/APIS/badge)](https://scorecard.dev/viewer/?uri=github.com/hyphae/APIS)
 
