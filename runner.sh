@@ -21,9 +21,9 @@ elif [ "$UNAME" = 'Linux' ] ; then
 		#gnome-terminal --working-directory=$DIR -- bash -c "$COMMAND; bash"
 		gnome-terminal -- bash -c "cd $DIR && $COMMAND; bash"
 	elif type konsole > /dev/null 2>&1 ; then
-		konsole --hold -e "cd $DIR && $COMMAND" &
+		konsole --hold -e bash -c "cd $DIR && $COMMAND; bash" &
 	elif type xfce4-terminal > /dev/null 2>&1 ; then
-		xfce4-terminal --hold -e "cd $DIR && $COMMAND" &
+		xfce4-terminal --hold -e "bash -c 'cd $DIR && $COMMAND; bash'" &
 	elif type xterm > /dev/null 2>&1 ; then
 		xterm -hold -e "cd $DIR && $COMMAND" &
 	else
