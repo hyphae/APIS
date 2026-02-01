@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 
 GIT_BASE_URL=https://github.com/hyphae
 
