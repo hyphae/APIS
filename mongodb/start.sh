@@ -1,4 +1,6 @@
+#!/bin/sh
 # SPDX-License-Identifier: Apache-2.0
+
 echo 'call start.sh'
 
 cd $(dirname "${0}")

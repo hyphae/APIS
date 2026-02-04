@@ -1,4 +1,6 @@
+#!/bin/sh
 # SPDX-License-Identifier: Apache-2.0
+
 echo 'call stop.sh'
 
 get_pids() {
