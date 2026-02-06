@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: apis-mongo
+    ports:
+      - "27017:27017"
+
+  apis-main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: apis-main
+    container_name: apis-main
+    depends_on:
+      - mongodb
+    ports:
+      - "5701:5701" # Hazelcast
+
+  apis-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: apis-web
+    container_name: apis-web
+    depends_on:
+      - apis-main
+    ports:
+      - "43830:43830" # Budo Emulator
+      - "43900:43900" # Emulator Emulator
+      - "9999:9999" # API Server (Deals/Errors)
+
+  apis-emulator:
+    build:
+      context: .
+      dockerfile: emulator.Dockerfile
+    container_name: apis-emulator
+    command: python3 startEmul.py 4
+    network_mode: service:apis-main # Run in same net namespace to simulate local Hardware connection if using multicast, simplifed for now
