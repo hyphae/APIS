@@ -130,6 +130,8 @@ APIS consists of several interconnected software modules that work together seam
 
 ## 💻 Installation Guide
 
+> **👨‍💻 Developers:** Check out our [Developer Setup Guide](DEVELOPER_SETUP.md) for detailed instructions on setting up your local environment and contributing.
+
 ![image 2](https://github.com/user-attachments/assets/66de9429-c395-4b02-a015-b4a11e455b1f)
 
 ### 🖥️ System Requirements
