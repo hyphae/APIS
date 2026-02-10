@@ -288,6 +288,17 @@ Set up APIS for your neighborhood and bring energy independence to your communit
 ### 🎓 **For Researchers**
 Contribute to the future of distributed energy systems through APIS development and research.
 
+## Code Quality Tooling (Java)
+
+APIS Java modules may use standard code quality tools to keep the codebase
+consistent and modern.
+
+- **Checkstyle** is used to enforce Java coding conventions.
+- **Modernizer** helps detect usage of legacy Java APIs.
+- **OpenRewrite** can assist with automated refactoring and modernization.
+
+Configuration for these tools is typically done through Maven (`pom.xml`)
+and may vary between modules.
 ---
 
 *Made with ❤️ by the APIS Community - Powering the future, one battery at a time.*
