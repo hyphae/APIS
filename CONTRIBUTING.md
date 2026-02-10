@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Contributing to APIS
 
 Thank you for your interest in contributing to APIS! We welcome contributions from the community to help improve and grow this project.

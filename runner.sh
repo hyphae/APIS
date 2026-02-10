@@ -1,4 +1,5 @@
 #!/bin/sh
+# SPDX-License-Identifier: Apache-2.0
 
 if [ $# -ne 2 ] ; then
 	echo "usage: $0 <directory> <command>"
