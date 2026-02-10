@@ -1,0 +1,38 @@
+# Git - only exclude root .git, keep submodule .git directories
+/.git
+/.github
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+**/venv/
+ENV/
+*.egg-info/
+.eggs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker files (not needed in container)
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Logs
+*.log
+logs/
+
+# MongoDB data (will be created fresh in container)
+mongodb/db/*
+!mongodb/db/.gitignore

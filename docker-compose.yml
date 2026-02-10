@@ -1,0 +1,40 @@
+# APIS Docker Compose Configuration
+# Quick Start: docker-compose up
+#
+# Available Services:
+#   - Main Controller:    http://localhost:4382/
+#   - Hardware Emulator:  http://localhost:4390/
+#   - Service Center:     http://localhost:8000/static/ui_example/staff/visual.html
+#   - Testing Interface:  http://localhost:10000/
+#   - MongoDB:            localhost:27018
+
+services:
+  apis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apis
+    ports:
+      - "4382:4382" # Main Controller
+      - "4390:4390" # Hardware Emulator
+      - "8000:8000" # Service Center
+      - "10000:10000" # Testing Interface
+      - "27018:27018" # MongoDB
+    volumes:
+      - apis-mongodb-data:/app/mongodb/db
+      - apis-data:/data/db
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:4382/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  apis-mongodb-data:
+    driver: local
+  apis-data:
+    driver: local
