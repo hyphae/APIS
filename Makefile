@@ -33,9 +33,9 @@ help:
 	@printf "  make stop                   - Stop all APIS services\n"
 
 apis-bom:
-	git clone $(GIT_BASE_URL)/apis-bom.git
+	@[ -d apis-bom ] || git clone $(GIT_BASE_URL)/apis-bom.git
 apis-common:
-	git clone $(GIT_BASE_URL)/apis-common.git
+	@[ -d apis-common ] || git clone $(GIT_BASE_URL)/apis-common.git
 apis-main:
 	git clone $(GIT_BASE_URL)/apis-main.git
 apis-ccc:
@@ -56,7 +56,9 @@ apis-tester:
 
 build-apis-bom: apis-bom
 	cd apis-bom/ && make install
-build-apis-common:apis-common
+apply-apis-common-fix: apis-common
+	cp fixes/apis-common-pom.xml apis-common/pom.xml
+build-apis-common: apply-apis-common-fix
 	cd apis-common/ && make install
 build-apis-main: apis-main
 	cd apis-main/ && make package
