@@ -128,6 +128,16 @@ APIS consists of several interconnected software modules that work together seam
 
 ---
 
+#### Quick Component Reference
+
+| Service | Port | Purpose | Technology |
+|---------|------|---------|------------|
+| **Main Controller** | 4382 | Web dashboard for monitoring and control | Python |
+| **Hardware Emulator** | 4390 | Simulate batteries and DC/DC converters | Python |
+| **Service Center** | 8000 | Admin interface for community management | Python |
+| **Testing Interface** | 10000 | System testing and validation tools | Python |
+| **MongoDB** | 27018 | Database for logs and system state | MongoDB |
+
 ## 💻 Installation Guide
 
 ![image 2](https://github.com/user-attachments/assets/66de9429-c395-4b02-a015-b4a11e455b1f)
@@ -155,6 +165,26 @@ sudo apt install git make maven groovy python3-venv python3-pip
 - **Java Development Kit (JDK)**: Latest version
 - **Python**: 3.6.9 or later  
 - **SQLite**: 3.8.3 or later (required for CentOS 7)
+
+#### OS-Specific Installation
+
+**Ubuntu/Debian:**
+```bash
+sudo apt update
+sudo apt install git make maven groovy python3-venv python3-pip openjdk-11-jdk mongodb
+```
+
+**CentOS/RHEL:**
+```bash
+sudo yum install git make maven groovy python3 python3-virtualenv python3-pip java-11-openjdk
+# MongoDB: Follow https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+```
+**macOS:**
+```bash
+# Install Homebrew if not installed: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git maven groovy mongodb/brew/mongodb-community
+# Python venv usually pre-installed
+```
 
 ### 🚀 Installation Steps
 
@@ -184,10 +214,30 @@ make run
 
 **If you encounter issues:**
 
-- **"Command not found" errors**: Install all prerequisites first
+#### Build Issues
+- **"Command not found" errors**: Install all prerequisites first (see Prerequisites section)
 - **"make build" or "make run" fails**: Open a new terminal and try again
-- **Port conflicts**: Stop other web servers or restart your computer
-- **Permission issues**: Check file permissions or try with appropriate privileges
+- **Maven/Java errors**: Ensure Java 11+ is installed: `java -version`
+- **Python venv errors**: Delete existing venv: `rm -rf venv` and recreate
+- **Git clone failures**: Check internet connection and repository access
+
+#### Service Issues  
+- **Port conflicts**: Services use ports 27018, 4382, 4390, 8000, 10000
+  - Check what's using ports: `netstat -tulpn | grep :4382` (Linux/Mac) or `netstat -ano | findstr :4382` (Windows)
+  - Kill conflicting processes or change ports in service configs
+- **MongoDB connection errors**: Ensure MongoDB is running on port 27018
+- **Service won't start**: Check logs in each service directory
+
+#### Platform-Specific Solutions
+
+**macOS Users:**
+- Install Xcode Command Line Tools: `xcode-select --install`
+- Use Homebrew for packages: `brew install maven groovy`
+- Python may need: `pip3 install virtualenv`
+
+**Linux Variants:**
+- **CentOS/RHEL**: Use `yum` instead of `apt`: `sudo yum install git make maven groovy python3-venv python3-pip`
+- **Ubuntu/Debian**: Follow standard apt commands
 
 ---
 
