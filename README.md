@@ -16,7 +16,7 @@ Imagine if your home battery could automatically share power with your neighbors
 - **🏠 Be Independent**: Reduce reliance on big power companies
 - **🛡️ Build Resilience**: Keep communities powered during grid outages
 
-Click [here](https://www.sonycsl.co.jp/tokyo/11481/) for more details about the research behind APIS.
+Read [more details about the research behind APIS](https://www.sonycsl.co.jp/tokyo/11481/).
 
 ## 🔧 How It Works
 
