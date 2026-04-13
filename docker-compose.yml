@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: Apache-2.0
+# Docker Compose for APIS (Autonomous Power Interchange System)
+#
+# Usage:
+#   docker compose up --build        # Build from source and start
+#   docker compose up -d             # Start in detached mode
+#   docker compose down              # Stop all services
+#   docker compose logs -f apis      # Follow APIS logs
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: apis-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  apis:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: apis-app
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    ports:
+      - "4382:4382"
+      - "4390:4390"
+      - "8000:8000"
+      - "10000:10000"
+    environment:
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+    driver: local

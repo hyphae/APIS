@@ -2,40 +2,48 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ "add-license-1" ]
+    branches: [ "add-license-1", "main" ]
   pull_request:
-    branches: [ "add-license-1" ]
+    branches: [ "add-license-1", "main" ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
 
-    # - name: configure
-    #  run: ./configure
-
     - name: Install dependencies
       run: |
-        sudo apt install git
-        sudo apt install make
-        sudo apt install maven
-        sudo apt install groovy
-        sudo apt install python3-venv
-        sudo apt install python3-pip
-        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-        echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-        sudo apt install mongodb-org
+        sudo apt-get update
+        sudo apt-get install -y git make maven groovy python3-venv python3-pip curl
+        curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-6.0.gpg
+        echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+        sudo apt-get update
+        sudo apt-get install -y mongodb-org
 
     - name: Build
       run: make build
-      
+
     - name: Run
-      run: make run
+      run: |
+        make run
+        sleep 30
+
+    - name: Health check
+      run: |
+        echo "Checking service health..."
+        curl -sf http://localhost:4382/ > /dev/null && echo "✓ Main Controller (4382) is up" || echo "✗ Main Controller (4382) is down"
+        curl -sf http://localhost:4390/ > /dev/null && echo "✓ Emulator (4390) is up" || echo "✗ Emulator (4390) is down"
+        curl -sf http://localhost:10000/ > /dev/null && echo "✓ Tester (10000) is up" || echo "✗ Tester (10000) is down"
+        curl -sf http://localhost:8000/static/ui_example/staff/visual.html > /dev/null && echo "✓ Service Center (8000) is up" || echo "✗ Service Center (8000) is down"
+        # Fail the job if the main services are not responding
+        curl -sf http://localhost:4382/ > /dev/null
+        curl -sf http://localhost:4390/ > /dev/null
 
     - name: Stop
+      if: always()
       run: make stop
 
 
