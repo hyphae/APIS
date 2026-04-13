@@ -74,12 +74,15 @@ COPY --from=builder /build/apis-tester /APIS/apis-tester
 
 # Copy orchestration files
 COPY Makefile runner.sh mongodb/ /APIS/
-COPY mongodb/ /APIS/mongodb/
 
 # Fix MongoDB port in service_center demo settings (27018 -> 27017)
-RUN if [ -f /APIS/apis-service_center/config/settings/apis-service_center-demo.py ]; then \
-    sed -i 's/27018/27017/g' /APIS/apis-service_center/config/settings/apis-service_center-demo.py; \
-    fi
+RUN for settings_file in \
+        /APIS/apis-service_center/config/settings/apis_service_center_demo.py \
+        /APIS/apis-service_center/config/settings/apis-service_center-demo.py; do \
+    if [ -f "$settings_file" ]; then \
+        sed -i 's/27018/27017/g' "$settings_file"; \
+    fi; \
+    done
 
 # Expose all service ports
 EXPOSE 4382 4390 8000 10000

@@ -29,7 +29,28 @@ jobs:
     - name: Run
       run: |
         make run
-        sleep 30
+
+        wait_for_url() {
+            local url="$1"
+            local name="$2"
+            local attempts=18
+            local delay=5
+
+            for ((i=1; i<=attempts; i++)); do
+                if curl -sf "$url" > /dev/null; then
+                    echo "✓ $name is ready"
+                    return 0
+                fi
+                echo "Waiting for $name ($url) to become ready... attempt $i/$attempts"
+                sleep "$delay"
+            done
+
+            echo "✗ Timed out waiting for $name ($url)"
+            return 1
+        }
+
+        wait_for_url "http://localhost:4382/" "Main Controller (4382)"
+        wait_for_url "http://localhost:4390/" "Emulator (4390)"
 
     - name: Health check
       run: |
@@ -38,9 +59,11 @@ jobs:
         curl -sf http://localhost:4390/ > /dev/null && echo "✓ Emulator (4390) is up" || echo "✗ Emulator (4390) is down"
         curl -sf http://localhost:10000/ > /dev/null && echo "✓ Tester (10000) is up" || echo "✗ Tester (10000) is down"
         curl -sf http://localhost:8000/static/ui_example/staff/visual.html > /dev/null && echo "✓ Service Center (8000) is up" || echo "✗ Service Center (8000) is down"
-        # Fail the job if the main services are not responding
+        # Fail the job if any service is not responding
         curl -sf http://localhost:4382/ > /dev/null
         curl -sf http://localhost:4390/ > /dev/null
+        curl -sf http://localhost:10000/ > /dev/null
+        curl -sf http://localhost:8000/static/ui_example/staff/visual.html > /dev/null
 
     - name: Stop
       if: always()

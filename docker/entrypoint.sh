@@ -17,7 +17,7 @@ echo "========================================"
 echo "[1/8] Starting apis-service_center on port 8000..."
 cd "$APIS_DIR/apis-service_center"
 . venv/bin/activate
-python3 ./manage.py runserver --settings=config.settings.apis-service_center-demo 0.0.0.0:8000 &
+python3 -m gunicorn config.wsgi:application --bind 0.0.0.0:8000 --env DJANGO_SETTINGS_MODULE=config.settings.apis_service_center_demo &
 deactivate 2>/dev/null || true
 
 # Start apis-emulator
@@ -102,5 +102,19 @@ echo " Tester:       http://localhost:10000"
 echo " Admin Panel:  http://localhost:8000/static/ui_example/staff/visual.html"
 echo "========================================"
 
-# Keep the container running and forward signals
-wait
+terminate_children() {
+    local pids
+    pids="$(jobs -pr)"
+    if [ -n "$pids" ]; then
+        kill -TERM $pids 2>/dev/null || true
+    fi
+}
+
+trap 'terminate_children; wait || true; exit 143' TERM INT
+
+# Keep the container running, forward signals, and exit if any service stops
+wait -n
+status=$?
+terminate_children
+wait || true
+exit "$status"
