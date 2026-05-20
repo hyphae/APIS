@@ -31,4 +31,4 @@ jobs:
         sudo apt-get install -y mongodb-org
 
     - name: Build
-      run: make build
+      run: make build-apis-bom
