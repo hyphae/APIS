@@ -1,10 +1,6 @@
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # 🔋 APIS - Autonomous Power Interchange System
-
-> **Share energy like sharing WiFi** - Connect your batteries and let communities power themselves
-
-![image 8](https://github.com/user-attachments/assets/2630dda3-97c9-424f-b20f-034af584be10)
-
----
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/hyphae/APIS/badge)](https://scorecard.dev/viewer/?uri=github.com/hyphae/APIS)
 
 ## 🎯 What is APIS?
 
@@ -21,8 +17,6 @@ Imagine if your home battery could automatically share power with your neighbors
 - **🛡️ Build Resilience**: Keep communities powered during grid outages
 
 Click [here](https://www.sonycsl.co.jp/tokyo/11481/) for more details about the research behind APIS.
-
----
 
 ## 🔧 How It Works
 
@@ -49,8 +43,6 @@ APIS achieves **precise energy sharing between batteries using constant current 
 - 📊 **Custom Parameters**: Configure energy amount, pricing, and timing preferences
 
 ![Autonomous Control Diagram](https://user-images.githubusercontent.com/71874910/95833927-3ff19b80-0d77-11eb-9bc7-1994e641d5fd.PNG)
-
----
 
 ## 🚀 Quick Start (5 Minutes)
 
@@ -94,7 +86,9 @@ make run
 make stop
 ```
 
----
+## 🔩 Installation
+- **Native Host (Recommended for Hardware):** See [Host Installation](docs/INSTALL_HOST.md) for building directly on your Linux distribution.
+- **Docker (Best for evaluation):** See [Docker Setup Guide](docs/INSTALL_DOCKER.md) for quick deployment and troubleshooting.
 
 ## 🛠️ System Components
 
@@ -128,73 +122,7 @@ APIS consists of several interconnected software modules that work together seam
 | **🚀 [apis-build_version_up_system](https://github.com/hyphae/apis-build_version_up_system)** | Deployment Tool | Automates multi-node software installation and configuration for production systems ([Documentation](https://github.com/hyphae/apis-build_version_up_system/blob/main/doc/en/apis-build_version_up_system_specification_EN.md)) |
 | **📖 [apis-hw-info](https://github.com/SonyCSL/apis-hw-info)** | Hardware Guide | Reference documentation for compatible hardware and technical specifications ([Documentation](https://github.com/hyphae/apis-hw-info/blob/main/MAIN-DOCUMENT_EN.md)) |
 
----
-
-## 💻 Installation Guide
-
-![image 2](https://github.com/user-attachments/assets/66de9429-c395-4b02-a015-b4a11e455b1f)
-
-### 🖥️ System Requirements
-
-**Tested Operating Systems:**
-- **Ubuntu**: 18.04, 20.04 ✅
-- **CentOS**: 7, 8 ✅  
-- **macOS**: Catalina, Big Sur ✅
-
-> **⚠️ Important**: Virtual environments are not currently supported.
-
-### 📋 Prerequisites
-
-**Before you start, make sure you have:**
-
-```bash
-# Ubuntu/Debian systems:
-sudo apt update
-sudo apt install git make maven groovy python3-venv python3-pip
-```
-
-**Also Required:**
-- **Java Development Kit (JDK)**: Latest version
-- **Python**: 3.6.9 or later  
-- **SQLite**: 3.8.3 or later (required for CentOS 7)
-
-### 🚀 Installation Steps
-
-**1. Clone the Repository**
-```bash
-git clone https://github.com/hyphae/APIS.git
-cd APIS
-```
-
-**2. Build All Components**
-```bash
-make build
-```
-*This downloads and compiles all necessary software - takes 5-10 minutes*
-
-**3. Start the System**
-```bash
-make run
-```
-
-**4. Verify Installation**
-- Open `http://0.0.0.0:4382/` in your browser
-- You should see the APIS control panel
-- All components should show as "Running" status
-
-### 🔧 Troubleshooting
-
-**If you encounter issues:**
-
-- **"Command not found" errors**: Install all prerequisites first
-- **"make build" or "make run" fails**: Open a new terminal and try again
-- **Port conflicts**: Stop other web servers or restart your computer
-- **Permission issues**: Check file permissions or try with appropriate privileges
-
----
-
 ## 📖 How to Use APIS
-
 ### 🎮 Basic Operations
 
 **Start the System:**
@@ -213,7 +141,6 @@ make stop
 ```
 
 ### ⚙️ Configuration
-
 **Energy Trading Setup:**
 1. Access the web interfaces to modify transaction parameters
 2. Adjust energy trading conditions per time window
@@ -225,7 +152,6 @@ make stop
 - Transaction history and analytics
 - Performance metrics and system health
 - Community-wide energy balance reports
-
 ---
 
 ## 🌍 Key Benefits
