@@ -67,13 +67,13 @@ build-apis-log: apis-log
 build-apis-web: apis-web
 	cd apis-web/ && make package
 build-apis-emulator: apis-emulator
-	cd apis-emulator/ && sh venv.sh
+	cd apis-emulator/ && sh scripts/venv.sh
 build-apis-main_controller: apis-main_controller
-	cd apis-main_controller/ && sh venv.sh
+	cd apis-main_controller/ && sh scripts/venv.sh
 build-apis-service_center: apis-service_center
-	cd apis-service_center/ && sh venv.sh && sh initdb.sh
+	cd apis-service_center/ && sh scripts/venv.sh && sh scripts/initdb.sh
 build-apis-tester: apis-tester
-	cd apis-tester/ && sh venv.sh
+	cd apis-tester/ && sh scripts/venv.sh
 
 build: build-apis-bom build-apis-common build-apis-main build-apis-ccc build-apis-log build-apis-web build-apis-emulator build-apis-main_controller build-apis-service_center build-apis-tester
 
@@ -115,13 +115,13 @@ clean-apis-log:
 clean-apis-web:
 	cd apis-web/ && make clean
 clean-apis-emulator:
-	cd apis-emulator/ && rm -rf venv
+	cd apis-emulator/ && rm -rf .venv
 clean-apis-main_controller:
-	cd apis-main_controller/ && rm -rf venv
+	cd apis-main_controller/ && rm -rf .venv
 clean-apis-service_center:
-	cd apis-service_center/ && rm -rf venv
+	cd apis-service_center/ && rm -rf .venv
 clean-apis-tester:
-	cd apis-tester/ && rm -rf venv
+	cd apis-tester/ && rm -rf .venv
 
 clean: clean-apis-bom clean-apis-common clean-apis-main clean-apis-ccc clean-apis-log clean-apis-web clean-apis-common clean-apis-bom clean-apis-emulator clean-apis-main_controller clean-apis-service_center clean-apis-tester
 
@@ -142,13 +142,13 @@ run-apis-log:
 run-apis-web:
 	@sh runner.sh apis-web/exe/ 'sh start.sh'
 run-apis-emulator:
-	@sh runner.sh apis-emulator/ '. venv/bin/activate && ./startEmul.py 4'
+	@sh runner.sh apis-emulator/ 'sh scripts/start.sh'
 run-apis-main_controller:
-	@sh runner.sh apis-main_controller/ '. venv/bin/activate && ./startMain.py'
+	@sh runner.sh apis-main_controller/ 'sh scripts/start.sh'
 run-apis-service_center:
-	@sh runner.sh apis-service_center/ 'sh start.sh'
+	@sh runner.sh apis-service_center/ 'sh scripts/start.sh'
 run-apis-tester:
-	@sh runner.sh apis-tester/ '. venv/bin/activate && ./startTester.py'
+	@sh runner.sh apis-tester/ 'sh scripts/start.sh'
 run-mongodb:
 	@sh runner.sh mongodb/ 'sh start.sh'
 
@@ -164,13 +164,13 @@ stop-apis-log:
 stop-apis-web:
 	cd apis-web/exe/ && sh stop-kill.sh
 stop-apis-emulator:
-	cd apis-emulator/ && sh stop.sh
+	cd apis-emulator/ && sh scripts/stop.sh
 stop-apis-main_controller:
-	cd apis-main_controller/ && sh stop.sh
+	cd apis-main_controller/ && sh scripts/stop.sh
 stop-apis-service_center:
-	cd apis-service_center/ && sh stop.sh
+	cd apis-service_center/ && sh scripts/stop.sh
 stop-apis-tester:
-	cd apis-tester/ && sh stop.sh
+	cd apis-tester/ && sh scripts/stop.sh
 stop-mongodb:
 	cd mongodb/ && sh stop.sh
 
