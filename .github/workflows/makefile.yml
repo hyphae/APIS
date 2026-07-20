@@ -2,9 +2,9 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ "add-license-1" ]
+    branches: [ "vertex-4" ]
   pull_request:
-    branches: [ "add-license-1" ]
+    branches: [ "vertex-4" ]
 
 jobs:
   build:
