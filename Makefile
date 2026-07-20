@@ -33,25 +33,25 @@ help:
 	@printf "  make stop                   - Stop all APIS services\n"
 
 apis-bom:
-	git clone $(GIT_BASE_URL)/apis-bom.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-bom.git && cd apis-bom/ && git checkout vertex-4
 apis-common:
-	git clone $(GIT_BASE_URL)/apis-common.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-common.git && cd apis-common/ && git checkout vertex-4
 apis-main:
-	git clone $(GIT_BASE_URL)/apis-main.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-main.git && cd apis-main/ && git checkout vertex-4
 apis-ccc:
-	git clone $(GIT_BASE_URL)/apis-ccc.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-ccc.git && cd apis-ccc/ && git checkout vertex-4
 apis-log:
-	git clone $(GIT_BASE_URL)/apis-log.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-log.git && cd apis-log/ && git checkout vertex-4
 apis-web:
-	git clone $(GIT_BASE_URL)/apis-web.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-web.git && cd apis-web/ && git checkout vertex-4
 apis-emulator:
-	git clone $(GIT_BASE_URL)/apis-emulator.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-emulator.git && cd apis-emulator/ && git checkout vertex-4
 apis-main_controller:
-	git clone $(GIT_BASE_URL)/apis-main_controller.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-main_controller.git && cd apis-main_controller/ && git checkout vertex-4
 apis-service_center:
-	git clone $(GIT_BASE_URL)/apis-service_center.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-service_center.git && cd apis-service_center/ && git checkout vertex-4
 apis-tester:
-	git clone $(GIT_BASE_URL)/apis-tester.git && git checkout vertex-4
+	git clone $(GIT_BASE_URL)/apis-tester.git && cd apis-tester/ && git checkout vertex-4
 
 
 build-apis-bom: apis-bom
