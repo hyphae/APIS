@@ -18,7 +18,7 @@ docker run -it \
   -p 4382:4382 \
   -p 4390:4390 \
   -p 8000:8000 \
-  -p 27017:27017 \
+  -p 27018:27018 \
   --name apis-dev \
   ubuntu:20.04
 
@@ -63,7 +63,7 @@ make build
 
 ### 3. Configuration Fix: Standardize MongoDB Port
 
-To ensure seamless communication, all service configurations were standardized to the default MongoDB port, **27017**, resolving previous discrepancies where some services expected 27018.
+To ensure seamless communication, all service configurations were standardized to MongoDB port **27018**.
 <img width="885" height="296" alt="Image" src="https://github.com/user-attachments/assets/bac792fe-6c90-4ace-b3cf-416edf5d629b" />
 
 ### 4. Running the Application Suite
@@ -110,7 +110,7 @@ docker pull 3akare/hyphaes-stable:latest
 
 **Problem:** Services run successfully inside the container but `http://localhost:4382` is unreachable from the host.
 **Cause:** Using `docker run` without `-p` flags.
-**Solution:** You must define all ports (`10000, 4382, 4390, 8000, 27017`) at the time of container creation. Docker does not allow adding port mappings to a running container.
+**Solution:** You must define all ports (`10000, 4382, 4390, 8000, 27018`) at the time of container creation. Docker does not allow adding port mappings to a running container.
 
 ### 2. MongoDB Installation Failure (Ubuntu 22.04+)
 
