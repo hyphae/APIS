@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 # 🔋 APIS - Autonomous Power Interchange System
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/hyphae/APIS/badge)](https://scorecard.dev/viewer/?uri=github.com/hyphae/APIS)
-
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9993/badge)](https://www.bestpractices.dev/projects/9993)
 ## 🎯 What is APIS?
 
 **APIS** is an innovative open-source platform that enables **Physical Peer-to-Peer (PP2P) energy sharing** between distributed batteries in microgrids. By leveraging Variable Renewable Energy (VRE) sources, APIS builds resilient microgrids that enhance community self-sufficiency and reduce dependency on traditional centralized power generation.
