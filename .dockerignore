@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: Apache-2.0
+# Docker build context exclusions
+
+# Git
+.git
+.github
+.gitignore
+
+# Documentation
+*.md
+docs/
+LICENSE
+NOTICE.md
+
+# MongoDB data (should use volumes, not baked in)
+mongodb/db/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

@@ -4,7 +4,7 @@
 echo 'call stop.sh'
 
 get_pids() {
- ps -f -U $(whoami) | grep mongod | grep 'port 27018' | while read _USER_ _PID_ _OTHERS_ ; do
+ ps -f -U $(whoami) | grep mongod | grep 'port 27017' | while read _USER_ _PID_ _OTHERS_ ; do
   echo $_PID_
  done
 }

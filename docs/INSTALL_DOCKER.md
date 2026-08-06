@@ -1,6 +1,44 @@
 ## 💻 Docker Installation & Troubleshooting Guide
 
-### 1. Environment Setup
+### Quick Start (Recommended)
+
+The fastest way to get APIS running is with Docker Compose, which handles MongoDB and all services automatically:
+
+```bash
+# Clone the repository
+git clone https://github.com/hyphae/APIS.git
+cd APIS
+
+# Build and start everything
+docker compose up --build
+```
+
+**That's it!** Once the build completes, access the web interfaces:
+
+| Service | URL |
+|---------|-----|
+| **Main Controller** | http://localhost:4382 |
+| **Emulator** | http://localhost:4390 |
+| **Tester** | http://localhost:10000 |
+| **Service Center** | http://localhost:8000/static/ui_example/staff/visual.html |
+
+To stop all services:
+```bash
+docker compose down
+```
+
+To stop and remove all data (including MongoDB):
+```bash
+docker compose down -v
+```
+
+---
+
+### Manual Setup (Alternative)
+
+If you prefer manual control over the environment, follow the steps below.
+
+#### 1. Environment Setup
 
 The environment is containerized to ensure consistency and avoid host machine dependency issues. You must map the required ports during the initial run to access the web interfaces later.
 
