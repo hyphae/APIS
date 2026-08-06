@@ -56,15 +56,15 @@ apis-tester:
 
 build-apis-bom: apis-bom
 	cd apis-bom/ && make install
-build-apis-common:apis-common
+build-apis-common: apis-common build-apis-bom
 	cd apis-common/ && make install
-build-apis-main: apis-main
+build-apis-main: apis-main build-apis-common
 	cd apis-main/ && make package
-build-apis-ccc: apis-ccc
+build-apis-ccc: apis-ccc build-apis-common
 	cd apis-ccc/ && make package
-build-apis-log: apis-log
+build-apis-log: apis-log build-apis-common
 	cd apis-log/ && make package
-build-apis-web: apis-web
+build-apis-web: apis-web build-apis-common
 	cd apis-web/ && make package
 build-apis-emulator: apis-emulator
 	cd apis-emulator/ && sh venv.sh
@@ -123,7 +123,7 @@ clean-apis-service_center:
 clean-apis-tester:
 	cd apis-tester/ && rm -rf venv
 
-clean: clean-apis-bom clean-apis-common clean-apis-main clean-apis-ccc clean-apis-log clean-apis-web clean-apis-common clean-apis-bom clean-apis-emulator clean-apis-main_controller clean-apis-service_center clean-apis-tester
+clean: clean-apis-bom clean-apis-common clean-apis-main clean-apis-ccc clean-apis-log clean-apis-web clean-apis-emulator clean-apis-main_controller clean-apis-service_center clean-apis-tester
 
 
 run-apis-main-1:
