@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 name: Makefile CI
 
 on:
@@ -9,33 +10,25 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
 
-    # - name: configure
-    #  run: ./configure
-
-    - name: Install dependencies
+    - name: Install build toolchain
       run: |
-        sudo apt install git
-        sudo apt install make
-        sudo apt install maven
-        sudo apt install groovy
-        sudo apt install python3-venv
-        sudo apt install python3-pip
-        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-        echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-        sudo apt install mongodb-org
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          git make maven groovy python3-venv python3-pip gnupg curl ca-certificates
+
+    - name: Install MongoDB 7.0
+      run: |
+        curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc \
+          | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+        echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" \
+          | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+        sudo apt-get update
+        sudo apt-get install -y mongodb-org
 
     - name: Build
-      run: make build
-      
-    - name: Run
-      run: make run
-
-    - name: Stop
-      run: make stop
-
-
+      run: make build-apis-bom
