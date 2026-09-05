@@ -21,7 +21,7 @@ jobs:
       run: |
         sudo apt-get update
 
-        sudo apt-get install -y \
+        sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y \
           make \
           maven \
           groovy \
@@ -33,13 +33,13 @@ jobs:
 
         # Install MongoDB 8.0
         curl -fsSL https://pgp.mongodb.com/server-8.0.asc \
-          | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
+          | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/mongodb-server-8.0.gpg
 
         echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" \
           | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 
         sudo apt-get update
-        sudo apt-get install -y mongodb-org
+        sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y mongodb-org
 
         # Install uv
         curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -63,5 +63,4 @@ jobs:
     - name: Stop
       if: always()
       run: make stop
-
 
